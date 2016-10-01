@@ -26,7 +26,6 @@ public class ProblemCannibals extends Problem {
         //System.out.println(""+ can_state.toString());
         //Let's create without any constraint, then remove the illegal ones
         StateCannibals successor_state;
-        int score = 0;
 		
 		
         //one cannibal only from left to right
@@ -35,8 +34,7 @@ public class ProblemCannibals extends Problem {
         successor_state.canArray[cannR] += 1;
         successor_state.canArray[boatL] -= 1;
         successor_state.canArray[boatR] += 1;
-		score = successor_state.canArray[cannL] + successor_state.canArray[missL];
-        if (isValid(successor_state) && score <= noback) set.add(successor_state);
+        if (isValid(successor_state)) set.add(successor_state);
 
         //one cannibal only from right to left
         //TODO  
@@ -45,8 +43,7 @@ public class ProblemCannibals extends Problem {
         successor_state.canArray[cannL] += 1;
         successor_state.canArray[boatR] = 0;
         successor_state.canArray[boatL] += 1;
-        score = successor_state.canArray[cannL] + successor_state.canArray[missL];
-        if (isValid(successor_state) && score <= noback) set.add(successor_state);
+        if (isValid(successor_state)) set.add(successor_state);
         
         //two cannibals from left to right
         //TODO
@@ -55,8 +52,7 @@ public class ProblemCannibals extends Problem {
         successor_state.canArray[cannR] += 2;
         successor_state.canArray[boatL] -= 1;
         successor_state.canArray[boatR] += 1;
-        score = successor_state.canArray[cannL] + successor_state.canArray[missL];
-        if (isValid(successor_state) && score <= noback) set.add(successor_state);
+        if (isValid(successor_state)) set.add(successor_state);
         
         //two cannibals from right to left 
         //TODO        
@@ -65,8 +61,7 @@ public class ProblemCannibals extends Problem {
         successor_state.canArray[cannL] += 2;
         successor_state.canArray[boatR] -= 1;
         successor_state.canArray[boatL] += 1;
-        score = successor_state.canArray[cannL] + successor_state.canArray[missL];
-        if (isValid(successor_state) && score <= noback) set.add(successor_state);
+        if (isValid(successor_state)) set.add(successor_state);
         //one missionary only from left to right 
         //TODO
         successor_state = new StateCannibals(can_state);
@@ -74,8 +69,7 @@ public class ProblemCannibals extends Problem {
         successor_state.canArray[missR] += 1;
         successor_state.canArray[boatL] -= 1;
         successor_state.canArray[boatR] += 1;
-        score = successor_state.canArray[cannL] + successor_state.canArray[missL];
-        if (isValid(successor_state) && score <= noback) set.add(successor_state);
+        if (isValid(successor_state)) set.add(successor_state);
         //one missionary only from right to left 
         //TODO
         successor_state = new StateCannibals(can_state);
@@ -83,8 +77,7 @@ public class ProblemCannibals extends Problem {
         successor_state.canArray[missL] += 1;
         successor_state.canArray[boatR] -= 1;
         successor_state.canArray[boatL] += 1;
-        score = successor_state.canArray[cannL] + successor_state.canArray[missL];
-        if (isValid(successor_state) && score <= noback) set.add(successor_state);
+        if (isValid(successor_state)) set.add(successor_state);
         //two missionaries from left to right 
         //TODO
         successor_state = new StateCannibals(can_state);
@@ -92,8 +85,7 @@ public class ProblemCannibals extends Problem {
         successor_state.canArray[missR] += 2;
         successor_state.canArray[boatL] -= 1;
         successor_state.canArray[boatR] += 1;
-        score = successor_state.canArray[cannL] + successor_state.canArray[missL];
-        if (isValid(successor_state) && score <= noback) set.add(successor_state);
+        if (isValid(successor_state)) set.add(successor_state);
         //two missionaries from right to left 
         //TODO
 		successor_state = new StateCannibals(can_state);
@@ -101,8 +93,7 @@ public class ProblemCannibals extends Problem {
         successor_state.canArray[missL] += 2;
         successor_state.canArray[boatR] -= 1;
         successor_state.canArray[boatL] += 1;
-        score = successor_state.canArray[cannL] + successor_state.canArray[missL];
-        if (isValid(successor_state) && score <= noback) set.add(successor_state);
+        if (isValid(successor_state)) set.add(successor_state);
         
         //one cannibal and one missionary from left to right 
         //TODO
@@ -114,8 +105,7 @@ public class ProblemCannibals extends Problem {
 		
         successor_state.canArray[boatL] -= 1;
         successor_state.canArray[boatR] += 1;
-		score = successor_state.canArray[cannL] + successor_state.canArray[missL];
-        if (isValid(successor_state) && score <= noback) set.add(successor_state);
+        if (isValid(successor_state)) set.add(successor_state);
         //one cannibal and one missionary from right to left 
         //TODO 
         successor_state = new StateCannibals(can_state);
@@ -126,8 +116,7 @@ public class ProblemCannibals extends Problem {
 		
         successor_state.canArray[boatR] -= 1;
         successor_state.canArray[boatL] += 1;
-        score = successor_state.canArray[cannL] + successor_state.canArray[missL];
-        if (isValid(successor_state) && score <= noback) set.add(successor_state);
+        if (isValid(successor_state)) set.add(successor_state);
         return set;
     }
     
